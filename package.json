@@ -7,8 +7,11 @@
   "keywords": [
     "gatsby"
   ],
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
