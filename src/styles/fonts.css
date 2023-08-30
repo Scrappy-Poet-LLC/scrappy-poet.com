@@ -1,0 +1,75 @@
+/** Light monospace **/
+/* Normal */
+@font-face {
+  font-family: triplicate-t3;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t3_regular.woff") format("woff");
+}
+
+/* Italic */
+@font-face {
+  font-family: triplicate-t3;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t3_italic.woff") format("woff");
+}
+
+/* Bold */
+@font-face {
+  font-family: triplicate-t3;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t3_bold.woff") format("woff");
+}
+
+/* Code variant */
+@font-face {
+  font-family: triplicate-code-t3;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate\ Code/woff/triplicate_t3_code_regular.woff") format("woff");
+}
+
+/*** *** ***/
+
+/** Heavier monospace **/
+/* Normal */
+@font-face {
+  font-family: triplicate-t4;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t4_regular.woff") format("woff");
+}
+
+/* Italic */
+@font-face {
+  font-family: triplicate-t4;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t4_italic.woff") format("woff");
+}
+
+/* Bold */
+@font-face {
+  font-family: triplicate-t4;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_t4_bold.woff") format("woff");
+}
+
+/* Code variant */
+@font-face {
+  font-family: triplicate-code-t4;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate\ Code/woff/triplicate_t4_code_regular.woff") format("woff");
+}

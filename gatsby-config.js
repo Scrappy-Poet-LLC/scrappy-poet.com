@@ -1,3 +1,5 @@
+var path = require("path");
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -12,6 +14,15 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
+    {
+      // This plugin allows us to alias common import paths to short names.
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        "@components": path.resolve(__dirname, "src/components"),
+        "@images": path.resolve(__dirname, "src/images"),
+        "@styles": path.resolve(__dirname, "src/styles"),
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
