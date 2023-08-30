@@ -13,22 +13,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: ['.md', '.mdx'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: "gatsby-remark-smartypants",
-            options: {
-              quotes: true,
-              ellipses: true,
-              dashes: "oldschool",
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",
