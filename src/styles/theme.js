@@ -4,6 +4,7 @@ var theme = {
   breakpoints: ['520px', '1000px'],
 
   colors: {
+    body: '#000000',
     // Slightly off-white
     background: '#fffdf9',
     // Nice muted, dusty red
@@ -45,6 +46,13 @@ var theme = {
 
       p: {
         marginBottom: '1rem',
+      },
+
+      a: {
+        textDecoration: 'none',
+        '&:link, &:visited': {
+          color: 'body'
+        },
       },
     },
   },

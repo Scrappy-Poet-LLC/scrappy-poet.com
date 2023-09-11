@@ -49,12 +49,28 @@ export default function IndexPage() {
             <SubtleEmphasis>backlogs</SubtleEmphasis> for overwhelmed engineering teams.
           </P>
 
-          <Box sx={{
+          <nav sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
             float: 'right',
             paddingRight: ['1.5rem', '3rem'],
           }}>
-            <CTA/>
-          </Box>
+            <CTA grouped sx={{
+              '> div': {
+                transform: 'rotate(-2deg)',
+              }
+            }}/>
+
+            <ActionButton disabled grouped tooltip='Under Construction' sx={{
+              paddingLeft: '1rem',
+              '> div': {
+                transform: 'rotate(2deg)',
+              },
+            }}>
+              <SubtleEmphasis><p>services →</p></SubtleEmphasis>
+            </ActionButton>
+          </nav>
         </section>
 
         <section sx={{
@@ -78,17 +94,23 @@ export default function IndexPage() {
             flexDirection: 'column',
             margin: ['2.5rem 0rem 1.5rem 0', '3rem -1.5rem 0 0'],
             transition: 'opacity 0.3s ease-in',
+            userSelect: 'none',
           }}>
 
-            <CTA/>
+            <CTA />
 
             <Box sx={{
               alignSelf: 'flex-end',
-              padding: ['0', '2.5rem 0'],
+              padding: ['4rem 0 0 0', '2.5rem 0'],
             }}>
-              <img src={signature} alt="Daniel Brady's signature" sx={{
-                maxWidth: ['80vw', '65vw', '45vw'],
-              }}/>
+              <img
+                src={signature}
+                alt="Daniel Brady's signature"
+                draggable={false}
+                sx={{
+                  maxWidth: ['80vw', '65vw', '45vw'],
+                }}
+              />
               <aside sx={{
                 marginTop: '0.5rem',
                 marginRight: ['0', '1.5rem'],
@@ -110,37 +132,110 @@ export const Head = () => <title>Scrappy Poet LLC</title>;
 
 /**** Helpers ****/
 
-function CTA() {
+function ActionButton({
+  children,
+  className,
+  tooltip = null,
+  disabled = false,
+  grouped = false,
+}) {
   return (
-    <P sx={{
-      display: 'inline-block',
-      width: 'fit-content',
-      margin: ['0 0 4rem 0', '0'],
-      padding: '0.3rem 0.5rem',
-      fontSize: '1rem',
-      border: '2px dashed',
-      borderColor: 'accent',
-      borderRadius: '12px',
-      transform: 'rotate(-2deg)',
-      transition: 'all 0.3s ease',
-      '&:hover, &:active': {
-        transform: 'scale(1.2) translate(10px, 0)',
-      },
-      'p': { margin: 0 },
-    }}>
-      <a
-        href='mailto:daniel.13rady+scrappy@gmail.com'
-        sx={{
-          display: 'block',
-          padding: '0.2rem 0',
-          textAlign: 'right',
-          textDecoration: 'none',
-          '&:link, &:visited': {
-            color: 'black'
-          },
-        }}
-      ><SubtleEmphasis>← get in touch</SubtleEmphasis></a>
-    </P>
+    <Fader
+      className={className}
+      fadeMargin='-50px 0px -50px 0px'
+      sx={grouped && {
+        position: 'relative',
+        '&:before, &:after': {
+          zIndex: -1,
+          content: '""',
+          position: 'absolute',
+          left: '4rem',
+          background: 'accent',
+          width: '0.85rem',
+          height: '1rem',
+        },
+        '&:before': {
+          top: '-1rem',
+        },
+        '&:first-child:before': {
+          top: 'calc(-1rem + 1px)',
+          borderRadius: '6px 6px 0 0',
+        },
+        '&:after': {
+          display: 'none',
+        },
+        '&:last-child:after': {
+          display: 'unset',
+          bottom: 'calc(-4rem + 1px)',
+          height: '4rem',
+          borderRadius: '0 0 6px 6px',
+        },
+      }}
+    >
+      <div sx={{
+        display: 'inline-block',
+        width: 'fit-content',
+        padding: '0.5rem',
+        fontSize: '1rem',
+        border: '2px dashed',
+        borderColor: 'accent',
+        borderRadius: '12px',
+        transition: 'all 0.3s ease',
+        backgroundColor: 'background',
+        userSelect: 'none',
+        position: 'relative',
+        '&:hover:after, &:active:after': {
+          content: `"${tooltip ?? ''}"`,
+          position: 'absolute',
+          top: '110%',
+          left: '1rem',
+          padding: '0 0.2rem',
+          fontSize: '0.5rem',
+          color: 'white',
+          backgroundColor: '#282828',
+          boxShadow: '2px 2px 10px grey',
+          borderRadius: '2px',
+        },
+        ...(disabled
+            ? {
+              backgroundColor: '#f0eeeb',
+              '&:before': {
+                display: 'block',
+                position: 'absolute',
+                content: '""',
+                width: '105%',
+                height: '10px',
+                background: 'linear-gradient(to bottom right, #996663, #996663)',
+                opacity: '0.2',
+                transform: [
+                  'rotate(15deg) translate(-10px, 10px)',
+                  'rotate(15deg) translate(-10px, 10px)',
+                  'rotate(17deg) translate(-12px, 16px)',
+                ],
+                borderRadius: '6px',
+              },
+            }
+            : {
+              '&:hover, &:active': {
+                transform: 'scale(105%) translate(10px, 0)',
+              }
+            }
+           ),
+        'p': { margin: 0 },
+      }}>
+        {children}
+      </div>
+    </Fader>
+  );
+}
+
+function CTA({ className, grouped = false }) {
+  return (
+    <ActionButton className={className} grouped={grouped}>
+      <a href='mailto:daniel.13rady+scrappy@gmail.com'>
+        <SubtleEmphasis>← get in touch</SubtleEmphasis>
+      </a>
+    </ActionButton>
   );
 }
 
