@@ -62,13 +62,17 @@ export default function IndexPage() {
               }
             }}/>
 
-            <ActionButton disabled grouped tooltip='Under Construction' sx={{
+            <ActionButton grouped sx={{
               paddingLeft: '1rem',
               '> div': {
                 transform: 'rotate(2deg)',
               },
             }}>
-              <SubtleEmphasis><p>services →</p></SubtleEmphasis>
+              <a href='/services'>
+                <SubtleEmphasis>
+                  services →
+                </SubtleEmphasis>
+              </a>
             </ActionButton>
           </nav>
         </section>
