@@ -45,13 +45,13 @@ export default function IndexPage() {
               padding: '0.5rem',
             },
           }}>
-            <CTA grouped sx={{
+            <CTA sx={{
               '> div': {
                 transform: 'rotate(-2deg)',
               }
             }}/>
 
-            <ActionButton grouped sx={{
+            <ActionButton sx={{
               paddingLeft: '1rem',
               '> div': {
                 transform: 'rotate(2deg)',
@@ -127,40 +127,11 @@ function ActionButton({
   className,
   tooltip = null,
   disabled = false,
-  grouped = false,
 }) {
   return (
     <Fader
       className={className}
       fadeMargin='-50px 0px -50px 0px'
-      sx={grouped && {
-        position: 'relative',
-        '&:before, &:after': {
-          zIndex: -1,
-          content: '""',
-          position: 'absolute',
-          left: '4rem',
-          background: 'accent',
-          width: '0.85rem',
-          height: '1rem',
-        },
-        '&:before': {
-          top: '-1rem',
-        },
-        '&:first-child:before': {
-          top: 'calc(-1rem + 1px)',
-          borderRadius: '6px 6px 0 0',
-        },
-        '&:after': {
-          display: 'none',
-        },
-        '&:last-child:after': {
-          display: 'unset',
-          bottom: 'calc(-4rem + 1px)',
-          height: '4rem',
-          borderRadius: '0 0 6px 6px',
-        },
-      }}
     >
       <div sx={{
         display: 'inline-block',
@@ -221,9 +192,9 @@ function ActionButton({
   );
 }
 
-function CTA({ className, grouped = false }) {
+function CTA({ className }) {
   return (
-    <ActionButton className={className} grouped={grouped}>
+    <ActionButton className={className}>
       <a href='mailto:daniel.13rady+scrappy@gmail.com'>
         <SubtleEmphasis>← get in touch</SubtleEmphasis>
       </a>
