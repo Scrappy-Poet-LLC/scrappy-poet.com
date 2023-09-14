@@ -4,7 +4,13 @@ import React, { useEffect, useRef } from "react";
 
 import { Box } from 'theme-ui';
 
-import CoreLayout from '@components/CoreLayout';
+import CoreLayout, {
+  Fader,
+  Main,
+  P,
+  Section,
+  SubtleEmphasis,
+} from '@components/CoreLayout';
 
 import signature from '@images/signature.png';
 
@@ -12,15 +18,8 @@ export default function IndexPage() {
   return (
     <CoreLayout>
 
-      <main sx={{
-        margin: ['1.5rem', '0 5.5rem'],
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
-        <section sx={{
-          minHeight: '100vh',
-          paddingTop: ['2rem', '4rem'],
-        }}>
+      <Main>
+        <Section>
           <P sx={{
             display: 'block',
             paddingBottom: '0.5rem',
@@ -75,12 +74,9 @@ export default function IndexPage() {
               </a>
             </ActionButton>
           </nav>
-        </section>
+        </Section>
 
-        <section sx={{
-          minHeight: '100vh',
-          paddingTop: ['2rem', '4rem'],
-        }}>
+        <Section>
           <P fadeMargin='-50px 0px -100px 0px'>
             As a kid, I used to love helping my dad fix the house. I’d shadow him on his projects, amazed at how he seemed to know everything. In reality, he didn’t know much at all: he just dove into everything with <strong>grit and gumption</strong>, and relied on his friends to have his back whenever he was out of his depth. He never studied: he learned on the job, and succeeded through trial and failure and support.
           </P>
@@ -101,7 +97,7 @@ export default function IndexPage() {
             userSelect: 'none',
           }}>
 
-            <CTA />
+            <CTA/>
 
             <Box sx={{
               alignSelf: 'flex-end',
@@ -125,8 +121,8 @@ export default function IndexPage() {
               </aside>
             </Box>
           </footer>
-        </section>
-      </main>
+        </Section>
+      </Main>
 
     </CoreLayout>
   );
@@ -240,72 +236,5 @@ function CTA({ className, grouped = false }) {
         <SubtleEmphasis>← get in touch</SubtleEmphasis>
       </a>
     </ActionButton>
-  );
-}
-
-function SubtleEmphasis({ children }) {
-  return (
-    <span sx={{ fontFamily: 'lightBody' }}>
-      {children}
-    </span>
-  );
-}
-
-function Fader({ children, className, opts = {} }) {
-  var {
-    root,
-    startVisible,
-    granularity,
-    margin,
-  } = {
-    root: null,
-    startVisible: false,
-    granularity: 20,
-    margin: '0px',
-    ...opts,
-  };
-  var ref = useRef(null);
-
-  useEffect(function modulateVisibility() {
-    if (!ref.current) return null;
-
-    var observer = new IntersectionObserver(
-      function changeOpacity(entries) {
-        for (let entry of entries) {
-          entry.target.style.opacity = entry.intersectionRatio;
-        }
-      }, {
-        root,
-        rootMargin: margin,
-        threshold: [0, ...Array(granularity).fill().map(function makeThreshold(_, index) {
-          return (index + 1) / granularity;
-        })],
-      },
-    );
-
-    observer.observe(ref.current);
-
-    return function stopWatching() {
-      observer.disconnect();
-    };
-  }, [!!ref.current]);
-
-  return (
-    <span ref={ref} className={className} sx={{
-      opacity: startVisible ? 1 : 0,
-      transitionProperty: 'opacity',
-      transitionDuration: '0.3s',
-      transitionTimingFunction: 'ease-in-out',
-    }}>
-      {children}
-    </span>
-  );
-}
-
-function P({ children, className, fadeMargin = '-50px 0px -50px 0px' }) {
-  return (
-    <Fader className={className} opts={{ margin: fadeMargin }}>
-      <p>{children}</p>
-    </Fader>
   );
 }
