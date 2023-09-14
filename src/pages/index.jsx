@@ -11,6 +11,7 @@ import CoreLayout, {
   Section,
   SubtleEmphasis,
 } from '@components/CoreLayout';
+import HeroHeading from '@components/HeroHeading';
 
 import signature from '@images/signature.png';
 
@@ -20,22 +21,7 @@ export default function IndexPage() {
 
       <Main>
         <Section>
-          <P sx={{
-            display: 'block',
-            paddingBottom: '0.5rem',
-            fontSize: ['2.2rem', '3.3rem'],
-          }}>
-            Daniel Brady
-          </P>
-
-          <P sx={{
-            display: 'block',
-            fontSize: ['1.2rem', '1.8rem'],
-            fontStyle: 'italic',
-            lineHeight: '115%',
-          }}>
-            Software maintenance and remodeling
-          </P>
+          <HeroHeading />
 
           <P sx={{
             display: 'block',
@@ -101,11 +87,11 @@ export default function IndexPage() {
             userSelect: 'none',
           }}>
 
-            <CTA/>
+            {/* <CTA/> */}
 
             <Box sx={{
               alignSelf: 'flex-end',
-              padding: ['4rem 0 0 0', '2.5rem 0'],
+              padding: ['4rem 0 0 0', '2.5rem 0 0 0'],
             }}>
               <img
                 src={signature}
@@ -182,7 +168,6 @@ function ActionButton({
         fontSize: '1rem',
         border: '2px dashed',
         borderColor: 'accent',
-        borderRadius: '12px',
         transition: 'all 0.3s ease',
         backgroundColor: 'background',
         userSelect: 'none',

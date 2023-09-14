@@ -35,6 +35,23 @@
 /*   src: url("../fonts/Triplicate\ Code/woff/triplicate_t3_code_regular.woff") format("woff"); */
 /* } */
 
+/* Small caps variant */
+@font-face {
+  font-family: triplicate-c3;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_c3_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: triplicate-c3;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_c3_bold.woff") format("woff");
+}
+
 /*** *** ***/
 
 /** Heavier monospace **/
@@ -73,3 +90,20 @@
 /*   font-stretch: normal; */
 /*   src: url("../fonts/Triplicate\ Code/woff/triplicate_t4_code_regular.woff") format("woff"); */
 /* } */
+
+/* Small caps variant */
+@font-face {
+  font-family: triplicate-c4;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_c4_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: triplicate-c4;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url("../fonts/Triplicate/woff/triplicate_c4_bold.woff") format("woff");
+}

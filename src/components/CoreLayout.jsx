@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 
+import smallCaps from '@utils/smallCaps';
+
 export default function CoreLayout({ children }) {
   return (
     <>
@@ -26,7 +28,12 @@ export function Section({ children, className, }) {
   return (
     <section className={className} sx={{
       minHeight: '100vh',
-      paddingTop: ['2rem', '4rem'],
+      '&:not(:first-of-type)': {
+        paddingTop: ['2rem', '4rem'],
+      },
+      '&:last-of-type': {
+        paddingBottom: [0, '2rem'],
+      },
     }}>
       {children}
     </section>
@@ -35,7 +42,11 @@ export function Section({ children, className, }) {
 
 export function P({ children, className, fadeMargin = '-50px 0px -50px 0px' }) {
   return (
-    <Fader className={className} opts={{ margin: fadeMargin }}>
+    <Fader
+      className={className}
+      sx={{ display: 'block' }}
+      opts={{ margin: fadeMargin }}
+    >
       <p>{children}</p>
     </Fader>
   );
@@ -44,6 +55,17 @@ export function P({ children, className, fadeMargin = '-50px 0px -50px 0px' }) {
 export function SubtleEmphasis({ children, className, }) {
   return (
     <span className={className} sx={{ fontFamily: 'lightBody' }}>
+      {children}
+    </span>
+  );
+}
+
+export function SmallCaps({ children, className, fontFamily = 'body' }) {
+  return (
+    <span sx={{
+      textTransform: 'lowercase', // Equalize upper & lower case first
+      fontFamily: smallCaps(fontFamily),
+    }}>
       {children}
     </span>
   );
