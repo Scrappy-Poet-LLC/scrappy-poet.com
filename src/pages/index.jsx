@@ -54,6 +54,10 @@ export default function IndexPage() {
             gap: '1rem',
             float: 'right',
             paddingRight: ['1.5rem', '3rem'],
+            a: {
+              display: 'inline-block',
+              padding: '0.5rem',
+            },
           }}>
             <CTA grouped sx={{
               '> div': {
@@ -175,7 +179,6 @@ function ActionButton({
       <div sx={{
         display: 'inline-block',
         width: 'fit-content',
-        padding: '0.5rem',
         fontSize: '1rem',
         border: '2px dashed',
         borderColor: 'accent',
@@ -222,6 +225,10 @@ function ActionButton({
             }
            ),
         'p': { margin: 0 },
+        'a': {
+          display: 'inline-block',
+          padding: '0.5rem',
+        },
       }}>
         {children}
       </div>
