@@ -3,7 +3,10 @@
 import React from "react";
 
 import CoreLayout, {
+  Anchor,
+  CTA,
   Fader,
+  Footer,
   Main,
   P,
   Section,
@@ -11,31 +14,6 @@ import CoreLayout, {
   SubtleEmphasis,
 } from '@components/CoreLayout';
 import HeroHeading from '@components/HeroHeading';
-
-function Skewed({ children }) {
-  return (
-    <Fader sx={{
-      display: 'block',
-      transform: 'rotate(-2deg)',
-    }}>
-      {children}
-    </Fader>
-  );
-}
-
-function ServiceItem({ children }) {
-  return (
-    children
-  );
-}
-
-function ServiceLabel({ children }) {
-  return (
-    <Fader>
-      <h2>{children}</h2>
-    </Fader>
-  );
-}
 
 export default function ServicesPage() {
   return (
@@ -45,22 +23,23 @@ export default function ServicesPage() {
         <a href="/" sx={{
           transition: 'all 0.3s ease-in-out',
           '&:hover, &:active': {
-            transform: 'scale(1.02)'
+            transform: 'scale(1.02)',
           },
         }}>
           <HeroHeading/>
         </a>
+
         <Section sx={{ paddingTop: '1.5rem' }}>
-          <Skewed>
+          <Fader>
             <h1>Services</h1>
-          </Skewed>
+          </Fader>
 
           <ServiceItem>
             <ServiceLabel>Pest Control</ServiceLabel>
             <P>
               I’ll work with you to understand an issue or set of symptoms besetting your software and then scope out a solution. This service includes a root-cause analysis and recommended treatment plan, and for an additional fee I’ll squash the bugs myself.
-              <br/>
-              <br/>
+            </P>
+            <P>
               <SmallCaps fontFamily='lightBody'>Best for:&nbsp;</SmallCaps>
               teams with complex systems experiencing flakiness or recurring issues, and teams with tight deadlines and not enough hands to focus on urgent maintenance
             </P>
@@ -70,8 +49,8 @@ export default function ServicesPage() {
             <ServiceLabel>Pressure Relief</ServiceLabel>
             <P>
               I’ll work with you to become familiar with the team’s area of ownership within your ecosystem, then serve as an ‘extra pair of hands’ each sprint, taking care of pressing maintenance and backlog tasks while your developers focus on shipping features and meeting their project deadlines.
-              <br/>
-              <br/>
+            </P>
+            <P>
               <SmallCaps fontFamily='lightBody'>Best for:&nbsp;</SmallCaps>
               teams with tight deadlines and not enough hands to focus on urgent maintenance
             </P>
@@ -81,8 +60,8 @@ export default function ServicesPage() {
             <ServiceLabel>Process Optimization</ServiceLabel>
             <P>
               I’ll work with you to understand a mission-critical process that takes too damn long, has too many damn manual steps, or really has no organized structure to it at all; then I’ll have conversations with stakeholders and scope out a better version that fits into how you do work as an organization.
-              <br/>
-              <br/>
+            </P>
+            <P>
               <SmallCaps fontFamily='lightBody'>Best for:&nbsp;</SmallCaps>
               teams with limited resources and ‘organically grown’ processes that have become entrenched in their work but are weighing them down or aren’t slowing them down enough
             </P>
@@ -92,23 +71,27 @@ export default function ServicesPage() {
             <ServiceLabel>Software Remodeling</ServiceLabel>
             <P>
               I’ll help you clean up, organize, and transform your fixer-upper app or MVP into a customized, production-grade solution that works for your team and is easier to live with.
-              <br/>
-              <br/>
+            </P>
+            <P>
               <SmallCaps fontFamily='lightBody'>Best for:&nbsp;</SmallCaps>
               teams whose features are hard to get out the door, whose backlogs are full of bugs, or whose tests are taking forever
             </P>
           </ServiceItem>
+
+          <CTA sx={{ margin: '1rem 0 2rem 0'}}/>
         </Section>
 
         <Section>
-          <Skewed>
-            <h1>How I Work</h1>
-          </Skewed>
+          <Anchor>
+            <Fader>
+              <h1>How I Work</h1>
+            </Fader>
+          </Anchor>
 
           <ServiceItem>
             <ServiceLabel>Initial assessments</ServiceLabel>
             <P>
-              When you hire a doctor to fix you, it’s impossible for them to make a diagnosis or take a course of action until they’ve gathered some information, and depending on what they’re evaluating, their assessment will change. I begin every non-trivial initiative with what I call a solution scope, in which I work with you to gather the context necessary to define the problem, scope a solution, and estimate the work required. And just like with a doctor, some of my clients find that an assessment and some advice is all they need and others need constant and ongoing care until their codebase and team are healthy enough to not need me.
+              When you hire a doctor to fix you, it’s impossible for them to make a diagnosis or take a course of action until they’ve gathered some information, and depending on what they’re evaluating, their assessment will change. I begin every non-trivial initiative with what I call a solution scope, in which I work with you to gather the context necessary to define the problem, scope a solution, and estimate the work required. And just like with a doctor, some of my clients find that an assessment and some advice is all they need and others need constant and ongoing care until their codebase and team are healthy enough to not need me.
             </P>
           </ServiceItem>
 
@@ -166,6 +149,10 @@ export default function ServicesPage() {
               </Fader>
             </ul>
           </ServiceItem>
+
+          <Footer>
+            <CTA sx={{ marginBottom: '1.5rem'}}/>
+          </Footer>
         </Section>
       </Main>
 
@@ -174,3 +161,21 @@ export default function ServicesPage() {
 }
 
 export const Head = () => <title>Scrappy Poet LLC</title>;
+
+/**** Helpers ****/
+
+function ServiceItem({ children }) {
+  return (
+    children
+  );
+}
+
+function ServiceLabel({ children}) {
+  return (
+    <Anchor>
+      <Fader>
+        <h2>{children}</h2>
+      </Fader>
+    </Anchor>
+  );
+}

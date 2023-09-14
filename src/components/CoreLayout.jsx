@@ -1,7 +1,9 @@
 /** @jsxImportSource theme-ui */
 
 import React, { useEffect, useRef } from "react";
+import { Box } from 'theme-ui';
 
+import signature from '@images/signature.png';
 import smallCaps from '@utils/smallCaps';
 
 export default function CoreLayout({ children }) {
@@ -40,7 +42,7 @@ export function Section({ children, className, }) {
   );
 }
 
-export function P({ children, className, fadeMargin = '-50px 0px -50px 0px' }) {
+export function P({ children, className, fadeMargin = '0px 0px 0px 0px' }) {
   return (
     <Fader
       className={className}
@@ -119,5 +121,149 @@ export function Fader({ children, className, opts = {} }) {
     }}>
       {children}
     </span>
+  );
+}
+
+export function ActionButton({
+  children,
+  className,
+  tooltip = null,
+  disabled = false,
+}) {
+  return (
+    <Fader className={className}>
+      <div sx={{
+        display: 'inline-block',
+        width: 'fit-content',
+        fontSize: '1rem',
+        border: '2px dashed',
+        borderColor: 'accent',
+        transition: 'all 0.3s ease',
+        backgroundColor: 'background',
+        userSelect: 'none',
+        position: 'relative',
+        '&:hover:after, &:active:after': {
+          content: `"${tooltip ?? ''}"`,
+          position: 'absolute',
+          top: '110%',
+          left: '1rem',
+          padding: '0 0.2rem',
+          fontSize: '0.5rem',
+          color: 'white',
+          backgroundColor: '#282828',
+          boxShadow: '2px 2px 10px grey',
+          borderRadius: '2px',
+        },
+        ...(disabled
+            ? {
+              backgroundColor: '#f0eeeb',
+              '&:before': {
+                display: 'block',
+                position: 'absolute',
+                content: '""',
+                width: '105%',
+                height: '10px',
+                background: 'linear-gradient(to bottom right, #996663, #996663)',
+                opacity: '0.2',
+                transform: [
+                  'rotate(15deg) translate(-10px, 10px)',
+                  'rotate(15deg) translate(-10px, 10px)',
+                  'rotate(17deg) translate(-12px, 16px)',
+                ],
+                borderRadius: '6px',
+              },
+            }
+            : {
+              '&:hover, &:active': {
+                transform: 'scale(105%) translate(10px, 0)',
+              }
+            }
+           ),
+        'p': { margin: 0 },
+        'a': {
+          display: 'inline-block',
+          padding: '0.5rem',
+        },
+      }}>
+        {children}
+      </div>
+    </Fader>
+  );
+}
+
+export function CTA({ className }) {
+  return (
+    <ActionButton className={className} sx={{ display: 'inline-block'}}>
+      <a href='mailto:daniel.13rady+scrappy@gmail.com'>
+        <SubtleEmphasis>← get in touch</SubtleEmphasis>
+      </a>
+    </ActionButton>
+  );
+}
+
+export function Footer({ children }) {
+  return(
+    <footer sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      margin: ['2.5rem 0rem 1.5rem 0', '3rem -1.5rem 0 0'],
+      transition: 'opacity 0.3s ease-in',
+      userSelect: 'none',
+    }}>
+
+      {children}
+
+      <Box sx={{
+        alignSelf: 'flex-end',
+        padding: ['2rem 0 0 0'],
+      }}>
+        <img
+          src={signature}
+          alt="Daniel Brady's signature"
+          draggable={false}
+          sx={{
+            maxWidth: ['80vw', '65vw', '45vw'],
+          }}
+        />
+        <aside sx={{
+          marginTop: '0.5rem',
+          marginRight: ['0', '1.5rem'],
+          fontSize: ['0.6rem', '0.8rem'],
+          textAlign: 'right',
+        }}>
+          ©2023 Scrappy Poet LLC
+        </aside>
+      </Box>
+    </footer>
+  );
+}
+
+export function Anchor({ children }) {
+  function getAnchorText(node) {
+    if (node == null) return '';
+    switch (typeof node) {
+    case 'string':
+    case 'number':
+      return node.toString();
+    case 'object': {
+      if (node instanceof Array) return node.map(getAnchorText).join('');
+      if ('props' in node) return getAnchorText(node.props.children);
+      break;
+    }
+    default:
+      return '';
+    }
+  }
+
+  var anchorText = getAnchorText(children);
+  var id = anchorText
+      .replaceAll(/['"]/g, '')
+      .replaceAll(' ', '-')
+      .toLowerCase();
+
+  return (
+    <a id={id} href={`#${id}`}>
+      {children}
+    </a>
   );
 }
