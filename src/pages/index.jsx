@@ -53,6 +53,7 @@ export default function IndexPage() {
             }}/>
 
             <ActionButton sx={{
+              paddingTop: '0.5rem',
               paddingLeft: '1rem',
               '> div': {
                 transform: 'rotate(2deg)',
