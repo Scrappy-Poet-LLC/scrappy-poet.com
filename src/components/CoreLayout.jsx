@@ -194,7 +194,7 @@ export function ActionButton({
 export function CTA({ className }) {
   return (
     <ActionButton className={className} sx={{ display: 'inline-block'}}>
-      <a href='mailto:daniel.13rady+scrappy@gmail.com'>
+      <a href='mailto:aloha@scrappy-poet.com'>
         <SubtleEmphasis>← get in touch</SubtleEmphasis>
       </a>
     </ActionButton>
