@@ -217,14 +217,16 @@ export function Footer({ children }) {
         alignSelf: 'flex-end',
         padding: ['2rem 0 0 0'],
       }}>
-        <img
-          src={signature}
-          alt="Daniel Brady's signature"
-          draggable={false}
-          sx={{
-            maxWidth: ['80vw', '65vw', '45vw'],
-          }}
-        />
+        <a href='https://daniel13rady.com'>
+          <img
+            src={signature}
+            alt="Daniel Brady's signature"
+            draggable={false}
+            sx={{
+              maxWidth: ['80vw', '65vw', '45vw'],
+            }}
+          />
+        </a>
         <aside sx={{
           marginTop: '0.5rem',
           marginRight: ['0', '1.5rem'],
