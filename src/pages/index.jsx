@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import { Link } from 'gatsby';
 import React, { useEffect, useRef } from "react";
 
 import { Box } from 'theme-ui';
@@ -75,11 +76,11 @@ export default function IndexPage() {
                   transform: 'rotate(2deg)',
                 },
               }}>
-                <a href='/services'>
+                <Link to='/services'>
                   <SubtleEmphasis>
                     services →
                   </SubtleEmphasis>
-                </a>
+                </Link>
               </ActionButton>
             </nav>
           </Box>

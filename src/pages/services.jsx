@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import { Link } from 'gatsby';
 import React from "react";
 
 import CoreLayout, {
@@ -20,7 +21,7 @@ export default function ServicesPage() {
     <CoreLayout>
 
       <Main>
-        <a href="/" sx={{
+        <Link to="/" sx={{
           transition: 'all 0.3s ease-in-out',
           '&:hover, &:active': {
             transform: 'scale(1.02)',
@@ -36,7 +37,7 @@ export default function ServicesPage() {
               left: [0, '-4.4rem'],
             },
           }}/>
-        </a>
+        </Link>
 
         <Section sx={{ paddingTop: '1.5rem' }}>
           <Fader>
