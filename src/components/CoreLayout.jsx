@@ -138,6 +138,7 @@ export function ActionButton({
         fontSize: '1rem',
         border: '2px dashed',
         borderColor: 'accent',
+        borderRadius: '2px',
         transition: 'all 0.3s ease',
         backgroundColor: 'background',
         userSelect: 'none',
