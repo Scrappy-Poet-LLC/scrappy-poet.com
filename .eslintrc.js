@@ -1,6 +1,7 @@
 module.exports = {
   globals: {
     __PATH_PREFIX__: true,
+    IntersectionObserver: true,
   },
   parser: "@babel/eslint-parser", // uses Babel eslint transforms
   settings: {
@@ -17,10 +18,13 @@ module.exports = {
   ],
   rules: {
     // Required and defined by Gatsby,
-    // "no-anonymous-exports-page-templates": "warn",
-    // "limited-exports-page-templates": "warn",
+    "no-anonymous-exports-page-templates": "warn",
+    "limited-exports-page-templates": "warn",
 
     // NOTE(dabrady) Would love to find a way to make ESLint aware of the Theme UI API.
     "react/no-unknown-property": ['error', { ignore: ['sx'] }],
+
+    // TODO(dabrady) Leaving this off until I convert this project to TypeScript
+    "react/prop-types": "off",
   },
 };

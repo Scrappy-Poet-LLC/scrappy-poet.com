@@ -113,7 +113,7 @@ export default function ServicesPage() {
           </ServiceItem>
 
           <ServiceItem>
-            <ServiceLabel>'No Size Fits All' Payment Options</ServiceLabel>
+            <ServiceLabel>&lsquo;No Size Fits All&rsquo; Payment Options</ServiceLabel>
             <P>
               I’ve built my operation to be as flexible and responsive as possible. As your needs change, I adapt, scaling my efforts up or down as needed within my own capacity limits, and to achieve this I operate with a <SubtleEmphasis>first paid, first served</SubtleEmphasis> policy: After paying for your initial assessment, you’ll have three business days where you’re at the front of the queue for ongoing development. If you decide not to start development right away, no worries: like a restaurant, you can always come back, but I can’t guarantee how long of a wait there will be when you return.
             </P>

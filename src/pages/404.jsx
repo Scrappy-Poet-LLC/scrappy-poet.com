@@ -26,10 +26,10 @@ _____|_|____
 `}
         </pre>
         <p>
-          This place doesn't exist.... The sadness.
+          This place doesn&rsquo;t exist.... The sadness.
         </p>
         <p>
-          ...But then of course, if this place doesn't exist, are you really here?
+          ...But then of course, if this place doesn&rsquo;t exist, are you really here?
         </p>
       </section>
     </main>

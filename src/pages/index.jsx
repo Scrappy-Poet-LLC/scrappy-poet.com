@@ -1,14 +1,13 @@
 /** @jsxImportSource theme-ui */
 
 import { Link } from 'gatsby';
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import { Box } from 'theme-ui';
 
 import CoreLayout, {
   ActionButton,
   CTA,
-  Fader,
   Footer,
   Main,
   P,

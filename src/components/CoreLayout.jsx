@@ -54,7 +54,7 @@ export function P({ children, className, fadeMargin = '0px 0px 0px 0px' }) {
   );
 }
 
-export function SubtleEmphasis({ children, className, }) {
+export function SubtleEmphasis({ children, className }) {
   return (
     <span className={className} sx={{ fontFamily: 'lightBody' }}>
       {children}
@@ -64,7 +64,7 @@ export function SubtleEmphasis({ children, className, }) {
 
 export function SmallCaps({ children, className, fontFamily = 'body' }) {
   return (
-    <span sx={{
+    <span className={className} sx={{
       textTransform: 'lowercase', // Equalize upper & lower case first
       fontFamily: smallCaps(fontFamily),
     }}>
@@ -110,7 +110,7 @@ export function Fader({ children, className, opts = {} }) {
     return function stopWatching() {
       observer.disconnect();
     };
-  }, [!!ref.current]);
+  }, [!!ref.current, root, margin, granularity]);
 
   return (
     <span ref={ref} className={className} sx={{
