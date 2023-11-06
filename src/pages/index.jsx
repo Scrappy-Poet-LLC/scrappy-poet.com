@@ -88,7 +88,7 @@ export default function IndexPage() {
 
         <Section>
           <P>
-            As a kid, I used to love helping my dad fix the house. I’d shadow him on his projects, amazed at how he seemed to know everything. In reality, he didn’t know much at all: he just dove into everything with <strong>grit and gumption</strong>, and relied on his friends to have his back whenever he was out of his depth. He never studied: he learned on the job, and succeeded through trial and failure and support.
+            As a kid, I used to love helping my dad fix the house. I’d shadow him on his projects, amazed at how he seemed to know everything. In reality, he didn’t know much at all: he just dove into everything with <SubtleEmphasis>grit and gumption</SubtleEmphasis>, and relied on his friends to have his back whenever he was out of his depth. He never studied: he learned on the job, and succeeded through trial and failure and support.
           </P>
 
           <P>
@@ -96,7 +96,7 @@ export default function IndexPage() {
           </P>
 
           <P>
-            My near-decade of experience as a maker has honed my strengths as a mender. <strong>I’m the maintenance guy</strong>, and I leave people, places, and things better than I found them.
+            My near-decade of experience as a maker has honed my strengths as a mender. <SubtleEmphasis>I’m the maintenance guy</SubtleEmphasis>, and I leave people, places, and things better than I found them.
           </P>
 
           <Footer/>
