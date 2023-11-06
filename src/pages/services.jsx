@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import { Link } from 'gatsby';
 import React from "react";
 
 import CoreLayout, {
@@ -20,14 +21,23 @@ export default function ServicesPage() {
     <CoreLayout>
 
       <Main>
-        <a href="/" sx={{
+        <Link to="/" sx={{
           transition: 'all 0.3s ease-in-out',
           '&:hover, &:active': {
             transform: 'scale(1.02)',
           },
         }}>
-          <HeroHeading/>
-        </a>
+          <HeroHeading sx={{
+            position: 'relative',
+            '&:before': {
+              content: "'←'",
+              position: 'absolute',
+              fontSize: ['2rem', '2.8rem'],
+              top: ['-1.2rem', 0],
+              left: [0, '-4.4rem'],
+            },
+          }}/>
+        </Link>
 
         <Section sx={{ paddingTop: '1.5rem' }}>
           <Fader>

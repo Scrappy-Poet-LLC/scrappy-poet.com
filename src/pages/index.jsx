@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import { Link } from 'gatsby';
 import React, { useEffect, useRef } from "react";
 
 import { Box } from 'theme-ui';
@@ -15,6 +16,8 @@ import CoreLayout, {
   SubtleEmphasis,
 } from '@components/CoreLayout';
 import HeroHeading from '@components/HeroHeading';
+
+import icon from '@images/icon.png';
 
 export default function IndexPage() {
   return (
@@ -35,42 +38,57 @@ export default function IndexPage() {
             <SubtleEmphasis>backlogs</SubtleEmphasis> for overwhelmed engineering teams.
           </P>
 
-          <nav sx={{
+          <Box sx={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            float: 'right',
-            paddingRight: ['1.5rem', '3rem'],
-            a: {
-              display: 'inline-block',
-              padding: '0.5rem',
-            },
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '100%',
           }}>
-            <CTA sx={{
-              '> div': {
-                transform: 'rotate(-2deg)',
-              }
-            }}/>
+            <img
+              src={icon}
+              alt="Scrappy Poet LLC logo"
+              draggable={false}
+              sx={{
+                maxWidth: ['45%', '50%'],
+              }}
+            />
 
-            <ActionButton sx={{
-              paddingTop: '0.5rem',
-              paddingLeft: '1rem',
-              '> div': {
-                transform: 'rotate(2deg)',
+            <nav sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              paddingRight: [null, '3rem'],
+              a: {
+                display: 'inline-block',
+                padding: '0.5rem',
               },
             }}>
-              <a href='/services'>
-                <SubtleEmphasis>
-                  services →
-                </SubtleEmphasis>
-              </a>
-            </ActionButton>
-          </nav>
+              <CTA sx={{
+                '> div': {
+                  transform: 'rotate(-2deg)',
+                }
+              }}/>
+
+              <ActionButton sx={{
+                paddingTop: '0.5rem',
+                paddingLeft: '1rem',
+                '> div': {
+                  transform: 'rotate(2deg)',
+                },
+              }}>
+                <Link to='/services'>
+                  <SubtleEmphasis>
+                    services →
+                  </SubtleEmphasis>
+                </Link>
+              </ActionButton>
+            </nav>
+          </Box>
         </Section>
 
         <Section>
           <P>
-            As a kid, I used to love helping my dad fix the house. I’d shadow him on his projects, amazed at how he seemed to know everything. In reality, he didn’t know much at all: he just dove into everything with <strong>grit and gumption</strong>, and relied on his friends to have his back whenever he was out of his depth. He never studied: he learned on the job, and succeeded through trial and failure and support.
+            As a kid, I used to love helping my dad fix the house. I’d shadow him on his projects, amazed at how he seemed to know everything. In reality, he didn’t know much at all: he just dove into everything with <SubtleEmphasis>grit and gumption</SubtleEmphasis>, and relied on his friends to have his back whenever he was out of his depth. He never studied: he learned on the job, and succeeded through trial and failure and support.
           </P>
 
           <P>
@@ -78,7 +96,7 @@ export default function IndexPage() {
           </P>
 
           <P>
-            My near-decade of experience as a maker has honed my strengths as a mender. <strong>I’m the maintenance guy</strong>, and I leave people, places, and things better than I found them.
+            My near-decade of experience as a maker has honed my strengths as a mender. <SubtleEmphasis>I’m the maintenance guy</SubtleEmphasis>, and I leave people, places, and things better than I found them.
           </P>
 
           <Footer/>
