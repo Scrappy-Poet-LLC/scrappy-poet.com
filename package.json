@@ -15,7 +15,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -35,6 +36,11 @@
     "theme-ui": "^0.16.1"
   },
   "devDependencies": {
-    "babel-preset-gatsby": "^3.12.0"
+    "@babel/eslint-parser": "^7.22.15",
+    "babel-preset-gatsby": "^3.12.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-webpack-plugin": "^4.0.1",
+    "gatsby-plugin-eslint": "^4.0.4"
   }
 }

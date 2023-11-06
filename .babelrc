@@ -3,8 +3,11 @@
     [
       "babel-preset-gatsby",
       {
-        "reactRuntime": "automatic"
+        "reactRuntime": "automatic",
+        "importSource": "@theme-ui/core",
+        "runtime": "automatic",
+        "throwIfNamespace": false
       }
-    ],
+    ]
   ]
 }
