@@ -26,7 +26,16 @@ export default function ServicesPage() {
             transform: 'scale(1.02)',
           },
         }}>
-          <HeroHeading/>
+          <HeroHeading sx={{
+            position: 'relative',
+            '&:before': {
+              content: "'←'",
+              position: 'absolute',
+              fontSize: ['2rem', '2.8rem'],
+              top: ['-1.2rem', 0],
+              left: [0, '-4.4rem'],
+            },
+          }}/>
         </a>
 
         <Section sx={{ paddingTop: '1.5rem' }}>
