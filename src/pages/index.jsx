@@ -16,6 +16,8 @@ import CoreLayout, {
 } from '@components/CoreLayout';
 import HeroHeading from '@components/HeroHeading';
 
+import icon from '@images/icon.png';
+
 export default function IndexPage() {
   return (
     <CoreLayout>
@@ -35,37 +37,52 @@ export default function IndexPage() {
             <SubtleEmphasis>backlogs</SubtleEmphasis> for overwhelmed engineering teams.
           </P>
 
-          <nav sx={{
+          <Box sx={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            float: 'right',
-            paddingRight: ['1.5rem', '3rem'],
-            a: {
-              display: 'inline-block',
-              padding: '0.5rem',
-            },
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '100%',
           }}>
-            <CTA sx={{
-              '> div': {
-                transform: 'rotate(-2deg)',
-              }
-            }}/>
+            <img
+              src={icon}
+              alt="Scrappy Poet LLC logo"
+              draggable={false}
+              sx={{
+                maxWidth: ['45%', '50%'],
+              }}
+            />
 
-            <ActionButton sx={{
-              paddingTop: '0.5rem',
-              paddingLeft: '1rem',
-              '> div': {
-                transform: 'rotate(2deg)',
+            <nav sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              paddingRight: [null, '3rem'],
+              a: {
+                display: 'inline-block',
+                padding: '0.5rem',
               },
             }}>
-              <a href='/services'>
-                <SubtleEmphasis>
-                  services →
-                </SubtleEmphasis>
-              </a>
-            </ActionButton>
-          </nav>
+              <CTA sx={{
+                '> div': {
+                  transform: 'rotate(-2deg)',
+                }
+              }}/>
+
+              <ActionButton sx={{
+                paddingTop: '0.5rem',
+                paddingLeft: '1rem',
+                '> div': {
+                  transform: 'rotate(2deg)',
+                },
+              }}>
+                <a href='/services'>
+                  <SubtleEmphasis>
+                    services →
+                  </SubtleEmphasis>
+                </a>
+              </ActionButton>
+            </nav>
+          </Box>
         </Section>
 
         <Section>
