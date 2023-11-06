@@ -26,7 +26,7 @@ export default function IndexPage() {
 
           <P sx={{
             display: 'block',
-            padding: '1.5rem 0 2.5rem 0',
+            padding: ['1.5rem 0 2.5rem 0', null, '1.5rem 0'],
             lineHeight: '130%',
             fontSize: ['1.2rem', '1.4rem'],
           }}>
