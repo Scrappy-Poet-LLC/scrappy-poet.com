@@ -196,7 +196,7 @@ export function CTA({ className }) {
   return (
     <ActionButton className={className} sx={{ display: 'inline-block'}}>
       <a href='https://calendly.com/scrappy-poet-llc/aloha'>
-        <SubtleEmphasis>← get in touch</SubtleEmphasis>
+        <SubtleEmphasis>← talk to me</SubtleEmphasis>
       </a>
     </ActionButton>
   );
