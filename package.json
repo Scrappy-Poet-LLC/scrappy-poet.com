@@ -21,6 +21,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@mdx-js/react": "^2.3.0",
+    "@theme-ui/match-media": "^0.16.1",
     "@theme-ui/mdx": "^0.16.1",
     "gatsby": "^5.12.1",
     "gatsby-plugin-image": "^3.12.0",

@@ -3,15 +3,49 @@ import '@styles/fonts.css';
 import smallCaps from '@utils/smallCaps';
 
 var theme = {
+  config: {
+    useColorSchemeMediaQuery: 'system',
+  },
   breakpoints: ['520px', '1000px'],
 
   colors: {
     text: '#000000',
     // Slightly off-white
     background: '#fffdf9',
+    grid: '#f4f4f4',
     // Nice muted, dusty red
     accent: '#996663',
-    heading: '#996663'
+    heading: '#996663',
+    lamplight: 'transparent',
+
+    modes: {
+      dark: {
+        background: '#ffeca4',
+        grid: '#e8dfbb',
+        accent: '#a0605c',
+        heading: '#a0605c',
+        lamplight: [
+          `radial-gradient(
+            farthest-corner at 45% 30%
+            ,transparent 20%
+            ,#0b0b0b 50%
+            ,black 85%
+          )`,
+          `radial-gradient(
+            farthest-corner at 55% 30%
+            ,transparent 20%
+            ,#0b0b0b 50%
+            ,black 85%
+          )`,
+          `radial-gradient(
+            farthest-corner at 60% 30%
+            ,transparent 20%
+            ,#0b0b0b 50%
+            ,black 85%
+          )`,
+        ],
+      },
+    },
   },
 
   fonts: {
@@ -42,8 +76,10 @@ var theme = {
 
       // Create a grid background
       backgroundSize: '1.4rem 1.4rem',
-      backgroundImage: `linear-gradient(to right, #f4f4f4 1px, transparent 1px),
-                        linear-gradient(to bottom, #f4f4f4 1px, transparent 1px)`,
+      backgroundImage: ({ colors }) => (
+        `linear-gradient(to right,  ${colors.grid} 1px, transparent 1px),
+         linear-gradient(to bottom, ${colors.grid} 1px, transparent 1px)`
+      ),
 
       '*': {
         margin: 0,
@@ -106,6 +142,9 @@ var theme = {
     },
   },
 
+  lamplight: {
+
+  }
 };
 
 // Theme variant aliases

@@ -2,14 +2,32 @@
 
 import React, { useEffect, useRef } from "react";
 import { Box } from 'theme-ui';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 
 import signature from '@images/signature.png';
 import smallCaps from '@utils/smallCaps';
 
 export default function CoreLayout({ children }) {
+  var breakpointIndex = useBreakpointIndex();
   return (
     <>
       {children}
+      <div sx={({ colors, rawColors }) => {
+        var background = Array.isArray(colors.lamplight)
+            ? rawColors.lamplight[breakpointIndex]
+            : rawColors.lamplight;
+        return {
+          zIndex: 2,
+          position: 'fixed',
+          pointerEvents: 'none',
+          background,
+          top: ['-70%'],
+          left: ['-45%', '-75%', '-55%'],
+          width: ['200vw', '220vw', '202vw'],
+          height: ['250vh'],
+          transform: ['rotate(-10deg)', 'rotate(-30deg)'],
+        };
+      }}></div>
     </>
   );
 }
@@ -18,6 +36,8 @@ export function Main({ children, className, }) {
   return (
     <main className={className} sx={{
       margin: ['1.5rem', '0 5.5rem'],
+      position: 'relative',
+      zIndex: 1,
       display: 'flex',
       flexDirection: 'column',
     }}>

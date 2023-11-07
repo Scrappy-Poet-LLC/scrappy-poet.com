@@ -2384,6 +2384,11 @@
     "@theme-ui/core" "^0.16.1"
     "@theme-ui/css" "^0.16.1"
 
+"@theme-ui/match-media@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/match-media/-/match-media-0.16.1.tgz#846deff644cd85f15f0449918f776a16cda81329"
+  integrity sha512-86SlF4Dem79v7l60Gz7mEjoQftwRmdY9eInyDA7A83D85L45dxq6iqHbj2FxxPu8KRI48gzN8Z+JNV/2CnhN1Q==
+
 "@theme-ui/mdx@^0.16.1":
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.16.1.tgz#071ec0d71c8193f44ab97ebca99ac303513da6d0"
