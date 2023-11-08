@@ -141,10 +141,6 @@ var theme = {
       paddingTop: ['1rem'],
     },
   },
-
-  lamplight: {
-
-  }
 };
 
 // Theme variant aliases

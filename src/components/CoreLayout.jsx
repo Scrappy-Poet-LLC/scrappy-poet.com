@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Box } from 'theme-ui';
+import { keyframes } from '@emotion/react';
 import { useBreakpointIndex } from '@theme-ui/match-media';
 
 import signature from '@images/signature.png';
@@ -9,6 +10,17 @@ import smallCaps from '@utils/smallCaps';
 
 export default function CoreLayout({ children }) {
   var breakpointIndex = useBreakpointIndex();
+  var move = keyframes`
+    0%{ transform: skewX(2deg) skewY(5deg)}
+    50%{ transform: skewX(-2deg) skewY(-0deg)}
+    100%{ transform: skewX(2deg) skewY(5deg)}
+  `;
+  var moveSomeMore = keyframes`
+    50%{transform: skewX(3deg);}
+  `;
+  var blink = keyframes`
+    50%{opacity: 0.95;}
+  `;
   return (
     <>
       {children}
@@ -26,6 +38,11 @@ export default function CoreLayout({ children }) {
           width: ['200vw', '220vw', '202vw'],
           height: ['250vh'],
           transform: ['rotate(-10deg)', 'rotate(-30deg)'],
+          // NOTE(dabrady) A pleasant wavering light effect.
+          animation: `
+            ${move} 3s infinite,
+            ${moveSomeMore} 2s infinite,
+            ${blink} 1.6s infinite`
         };
       }}></div>
     </>
