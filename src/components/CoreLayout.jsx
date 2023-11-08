@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import React, { useEffect, useRef } from "react";
-import { Box } from 'theme-ui';
+import { Box, useThemeUI } from 'theme-ui';
 import { keyframes } from '@emotion/react';
 import { useBreakpointIndex } from '@theme-ui/match-media';
 
@@ -9,41 +9,63 @@ import signature from '@images/signature.png';
 import smallCaps from '@utils/smallCaps';
 
 export default function CoreLayout({ children }) {
-  var breakpointIndex = useBreakpointIndex();
+  var { colorMode } = useThemeUI();
+  var breakpoint = useBreakpointIndex();
+  breakpoint;
+  var width = ['125vw', '95vw', '85vw'];
+  var height = ['115vh', '120vh', '120vh'];
   var move = keyframes`
-    0%{ transform: skewX(2deg) skewY(5deg)}
-    50%{ transform: skewX(-2deg) skewY(-0deg)}
-    100%{ transform: skewX(2deg) skewY(5deg)}
+    50%{
+      width: calc(${width[breakpoint]} + 2vw);
+      height: calc(${height[breakpoint]} - 1vw);
+    }
   `;
   var moveSomeMore = keyframes`
-    50%{transform: skewX(3deg);}
+    50%{ width: calc(${width[breakpoint]} - 1vw) }
   `;
   var blink = keyframes`
-    50%{opacity: 0.95;}
+    50%{ opacity: 0.95 }
   `;
+  var boxShadow = colorMode == 'dark'
+      ? `
+           0px 0px 20px   35px #ffd700
+          ,0px 0px 30px   50px #ff6a00
+          ,0px 0px 30px   70px #ff6a00
+          ,0px 0px  0px 1000px    #000
+        `
+      : null;
+  move;
+  moveSomeMore;
+  blink;
   return (
     <>
       {children}
-      <div sx={({ colors, rawColors }) => {
-        var background = Array.isArray(colors.lamplight)
-            ? rawColors.lamplight[breakpointIndex]
-            : rawColors.lamplight;
-        return {
-          zIndex: 2,
-          position: 'fixed',
-          pointerEvents: 'none',
-          background,
-          top: ['-70%'],
-          left: ['-45%', '-75%', '-55%'],
-          width: ['200vw', '220vw', '202vw'],
-          height: ['250vh'],
-          transform: ['rotate(-10deg)', 'rotate(-30deg)'],
-          // NOTE(dabrady) A pleasant wavering light effect.
-          animation: `
-            ${move} 3s infinite,
-            ${moveSomeMore} 2s infinite,
-            ${blink} 1.6s infinite`
-        };
+      <div sx={{
+        zIndex: 2,
+        position: 'fixed',
+        pointerEvents: 'none',
+
+        top: ['-30vh', '-30vh', '-30vh'],
+        left: ['-25vw', '-5vw', '0vw'],
+        width,
+        height,
+        borderRadius: '100% 300%',
+        // TODO(dabrady) Animating filters seems to _kill_ site performance. Find a better way. Gradients?
+        boxShadow,
+        filter: 'blur(120px)',
+        // NOTE(dabrady) Force hardware acceleration to avoid shadows within our blur
+        // transform: 'translate3D(0,0,0)',
+
+        /* top: ['-70%'], */
+        /* left: ['-45%', '-75%', '-55%'], */
+        /* width: ['200vw', '220vw', '202vw'], */
+        /* height: ['250vh'], */
+        /* transform: ['rotate(-10deg)', 'rotate(-30deg)'], */
+        // NOTE(dabrady) A pleasant wavering light effect.
+        // animation: `
+        //   ${move} 5s infinite
+        //   ,${moveSomeMore} 4s infinite
+        //   //,${blink} 1.6s infinite`
       }}></div>
     </>
   );
@@ -66,12 +88,12 @@ export function Main({ children, className, }) {
 export function Section({ children, className, }) {
   return (
     <section className={className} sx={{
-      minHeight: '100vh',
+      minHeight: ['90vh', '100vh'],
       '&:not(:first-of-type)': {
         paddingTop: ['2rem', '4rem'],
       },
       '&:last-of-type': {
-        paddingBottom: [0, '2rem'],
+        paddingBottom: [0, '4rem', '2rem'],
       },
     }}>
       {children}

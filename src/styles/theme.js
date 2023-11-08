@@ -20,8 +20,12 @@ var theme = {
 
     modes: {
       dark: {
-        background: '#ffeca4',
+        // background: '#ffeca4',
+        // background: '#f6e7ad',
+        background: '#efe3b4',
+        // background: '#fffdf9',
         grid: '#e8dfbb',
+        // grid: '#f4f4f4',
         accent: '#a0605c',
         heading: '#a0605c',
         lamplight: [
