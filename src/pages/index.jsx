@@ -114,7 +114,7 @@ export default function IndexPage() {
           </P>
 
           <P>
-            My near-decade of experience as a maker has honed my strengths as a
+            My decade of experience as a maker has honed my strengths as a
             mender. <SubtleEmphasis>I’m the maintenance guy</SubtleEmphasis>,
             and I leave people, places, and things better than I found them.
           </P>
