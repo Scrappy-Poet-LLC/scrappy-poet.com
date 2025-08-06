@@ -42,5 +42,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-webpack-plugin": "^4.0.1",
     "gatsby-plugin-eslint": "^4.0.4"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
